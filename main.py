@@ -29,5 +29,7 @@ while valid_input == False:
         print(x+p+w) and valid_input == True
     elif usein == "scissors" and compin == 2:
         print(x+s+t) and valid_input == True
+    elif usein == "stop":
+        break
     elif usein != "rock" and usein != "paper" and usein != "scissors":
         print("Sorry, you can't use that in this game.")
