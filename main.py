@@ -1,5 +1,6 @@
 import random
 valid_input = False
+a = 0
 while valid_input == False:
     compin = (random.randrange(0, 3))
 #0=rock 1=paper 2=scissors
@@ -10,26 +11,38 @@ while valid_input == False:
     w = "You win!"
     t = "You tied."
     L = "You lose."
-    usein = input("Welcome to rock, paper, scissors! Please type your choice:")
+    if a == 0:
+        usein = input("Welcome to rock, paper, scissors! Please type your choice:")
+    if a == 1:
+        usein = input("If you would like to play again, pick rock, paper, or scissors:")
     if usein == "rock" and compin == 0:
-        print(x+r+t) and valid_input == True
+        print(x+r+t)
+        a = 1
     elif usein == "rock" and compin == 1:
-        print(x+p+L) and valid_input == True
+        print(x+p+L)
+        a = 1
     elif usein == "rock" and compin == 2:
-        print(x+s+w) and valid_input == True
+        print(x+s+w)
+        a = 1
     elif usein == "paper" and compin == 0:
-        print(x+r+w) and valid_input == True
+        print(x+r+w)
+        a = 1
     elif usein == "paper" and compin == 1:
-        print(x+p+t) and valid_input == True
+        print(x+p+t)
+        a = 1
     elif usein == "paper" and compin == 2:
-        print(x+s+L) and valid_input == True
+        print(x+s+L)
+        a = 1
     elif usein == "scissors" and compin == 0:
-        print(x+r+L) and valid_input == True
+        print(x+r+L)
+        a = 1
     elif usein == "scissors" and compin == 1:
-        print(x+p+w) and valid_input == True
+        print(x+p+w)
+        a = 1
     elif usein == "scissors" and compin == 2:
-        print(x+s+t) and valid_input == True
+        print(x+s+t)
+        a = 1
     elif usein == "stop":
         break
-    elif usein != "rock" and usein != "paper" and usein != "scissors":
+    else:
         print("Sorry, you can't use that in this game.")
