@@ -14,7 +14,9 @@ while valid_input == False:
     if a == 0:
         usein = input("Welcome to rock, paper, scissors! Please type your choice:")
     if a == 1:
-        usein = input("If you would like to play again, pick rock, paper, or scissors:")
+        usein = input("If you would like to play again, pick rock, paper, or scissors. If not, type stop.")
+    if a == 2:
+        usein = input("Try again.")
     if usein == "rock" and compin == 0:
         print(x+r+t)
         a = 1
@@ -46,3 +48,4 @@ while valid_input == False:
         break
     else:
         print("Sorry, you can't use that in this game.")
+        a = 2
