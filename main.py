@@ -17,35 +17,39 @@ while valid_input == False:
         usein = input("If you would like to play again, pick rock, paper, or scissors. If not, type stop.")
     if a == 2:
         usein = input("Try again.")
-    if usein == "rock" and compin == 0:
-        print(x+r+t)
+    if usein == "Rock" or usein == "rock":
+        thing = 0
+    elif usein == "Paper" or usein == "paper":
+        thing = 1
+    elif usein == "Scissors" or usein == "scissors":
+        thing = 2
+    elif usein == "Stop" or usein == "stop":
+        thing = 3
+    else:
+        thing = 4
+    if thing == compin:
+        print(t)
         a = 1
-    elif usein == "rock" and compin == 1:
+    elif thing == 0 and compin == 1:
         print(x+p+L)
         a = 1
-    elif usein == "rock" and compin == 2:
+    elif thing == 0 and compin == 2:
         print(x+s+w)
         a = 1
-    elif usein == "paper" and compin == 0:
+    elif thing == 1 and compin == 0:
         print(x+r+w)
         a = 1
-    elif usein == "paper" and compin == 1:
-        print(x+p+t)
-        a = 1
-    elif usein == "paper" and compin == 2:
+    elif thing == 1 and compin == 2:
         print(x+s+L)
         a = 1
-    elif usein == "scissors" and compin == 0:
+    elif thing == 2 and compin == 0:
         print(x+r+L)
         a = 1
-    elif usein == "scissors" and compin == 1:
+    elif thing == 2 and compin == 1:
         print(x+p+w)
         a = 1
-    elif usein == "scissors" and compin == 2:
-        print(x+s+t)
-        a = 1
-    elif usein == "stop":
+    elif thing == 3:
         break
     else:
-        print("Sorry, you can't use that in this game.")
+        print("Sorry, you can't use that in this game")
         a = 2
