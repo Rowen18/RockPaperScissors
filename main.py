@@ -1,55 +1,51 @@
 import random
 valid_input = False
 a = 0
+value = {"rock": ("scissors", "lizard"),
+         "paper": ("rock", "spock"),
+         "scissors": ("paper", "lizard"),
+         "lizard": ("paper", "spock"),
+         "spock": ("scissors", "rock")}
 while valid_input == False:
-    compin = (random.randrange(0, 3))
+    compin = random.choice(["rock", "paper", "scissors", "lizard", "spock"])
 #0=rock 1=paper 2=scissors
-    x = "The computer picked "
-    r = "rock. "
-    p = "paper. "
-    s = "scissors. "
     w = "You win!"
     t = "You tied."
     L = "You lose."
     if a == 0:
-        usein = input("Welcome to rock, paper, scissors! Please type your choice:")
-    if a == 1:
-        usein = input("If you would like to play again, pick rock, paper, or scissors. If not, type stop.")
-    if a == 2:
+        usein = input("Welcome to rock, paper, scissors, lizard, spock! Please type your choice:")
+    elif a == 1:
+        usein = input("If you would like to play again, please type your choice. If not, type stop.")
+    elif a == 2:
         usein = input("Try again.")
+    else:
+        usein = input("I have no idea how you got this prompt, but if you want to input your choice I won't stop you.")
     if usein == "Rock" or usein == "rock":
-        thing = 0
+        thing = "rock"
     elif usein == "Paper" or usein == "paper":
-        thing = 1
+        thing = "paper"
     elif usein == "Scissors" or usein == "scissors":
-        thing = 2
+        thing = "scissors"
+    elif usein == "Lizard" or usein == "lizard":
+        thing = "lizard"
+    elif usein == "Spock" or usein == "spock":
+        thing = "spock"
     elif usein == "Stop" or usein == "stop":
-        thing = 3
+        thing = "stop"
     else:
         thing = 4
-    if thing == compin:
-        print(t)
-        a = 1
-    elif thing == 0 and compin == 1:
-        print(x+p+L)
-        a = 1
-    elif thing == 0 and compin == 2:
-        print(x+s+w)
-        a = 1
-    elif thing == 1 and compin == 0:
-        print(x+r+w)
-        a = 1
-    elif thing == 1 and compin == 2:
-        print(x+s+L)
-        a = 1
-    elif thing == 2 and compin == 0:
-        print(x+r+L)
-        a = 1
-    elif thing == 2 and compin == 1:
-        print(x+p+w)
-        a = 1
-    elif thing == 3:
-        break
-    else:
-        print("Sorry, you can't use that in this game")
+    try:
+        if thing == compin:
+            print(t)
+            a = 1
+        elif thing == "stop":
+            break
+        elif compin in value[thing]:
+            print("The computer picked "+compin+". "+w)
+            a = 1
+        else:
+            print("The computer picked "+compin+". "+L)
+            a = 1
+    except:
+        print("Error: the tool you picked does not exist")
         a = 2
