@@ -13,34 +13,20 @@ while valid_input == False:
     t = "You tied."
     L = "You lose."
     if a == 0:
-        usein = input("Welcome to rock, paper, scissors, lizard, spock! Please type your choice:")
+        usein = input("Welcome to rock, paper, scissors, lizard, spock! Please type your choice:").lower()
     elif a == 1:
-        usein = input("If you would like to play again, please type your choice. If not, type stop.")
+        usein = input("If you would like to play again, please type your choice. If not, type stop.").lower()
     elif a == 2:
-        usein = input("Try again.")
+        usein = input("Try again.").lower()
     else:
-        usein = input("I have no idea how you got this prompt, but if you want to input your choice I won't stop you.")
-    if usein == "Rock" or usein == "rock":
-        thing = "rock"
-    elif usein == "Paper" or usein == "paper":
-        thing = "paper"
-    elif usein == "Scissors" or usein == "scissors":
-        thing = "scissors"
-    elif usein == "Lizard" or usein == "lizard":
-        thing = "lizard"
-    elif usein == "Spock" or usein == "spock":
-        thing = "spock"
-    elif usein == "Stop" or usein == "stop":
-        thing = "stop"
-    else:
-        thing = 4
+        usein = input("I have no idea how you got this prompt, but if you want to input your choice I won't stop you.").lower()
     try:
-        if thing == compin:
+        if usein == compin:
             print(t)
             a = 1
-        elif thing == "stop":
+        elif usein == "stop":
             break
-        elif compin in value[thing]:
+        elif compin in value[usein]:
             print("The computer picked "+compin+". "+w)
             a = 1
         else:
