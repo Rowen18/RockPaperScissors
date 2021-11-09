@@ -1,4 +1,5 @@
 import random
+import win_loss_tracker
 valid_input = False
 a = 0
 value = {"rock": ("scissors", "lizard"),
@@ -6,24 +7,8 @@ value = {"rock": ("scissors", "lizard"),
          "scissors": ("paper", "lizard"),
          "lizard": ("paper", "spock"),
          "spock": ("scissors", "rock")}
-class stats:
-    def __init__(self, wins, losses, ties):
-        self.wins = 0
-        self.losses = 0
-        self.ties = 0
 
-    def stattrack(self):
-        print("You have ",(self.wins)," wins, ",(self.ties)," tied games, and ",(self.losses)," losses.")
-    def incrementwins(self):
-        self.wins += 1
-        self.stattrack()
-    def incrementlosses(self):
-        self.losses += 1
-        self.stattrack()
-    def incrementties(self):
-        self.ties += 1
-        self.stattrack()
-s1 = stats(0,0,0)
+s1 = win_loss_tracker.stats(0, 0, 0)
 while valid_input == False:
     compin = random.choice(["rock", "paper", "scissors", "lizard", "spock"])
 #0=rock 1=paper 2=scissors
