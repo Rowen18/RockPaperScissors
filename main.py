@@ -13,7 +13,16 @@ class stats:
         self.ties = 0
 
     def stattrack(self):
-        print("You have " + str(self.wins) + " wins, " + str(self.ties) + " tied games, and " + str(self.losses) + " losses.")
+        print("You have ",(self.wins)," wins, ",(self.ties)," tied games, and ",(self.losses)," losses.")
+    def incrementwins(self):
+        self.wins += 1
+        self.stattrack()
+    def incrementlosses(self):
+        self.losses += 1
+        self.stattrack()
+    def incrementties(self):
+        self.ties += 1
+        self.stattrack()
 s1 = stats(0,0,0)
 while valid_input == False:
     compin = random.choice(["rock", "paper", "scissors", "lizard", "spock"])
@@ -32,20 +41,17 @@ while valid_input == False:
     try:
         if usein == compin:
             print("The computer picked "+compin+t)
-            s1.ties += 1
-            s1.stattrack()
+            s1.incrementties()
             a = 1
         elif usein == "stop":
             break
         elif compin in value[usein]:
             print("The computer picked "+compin+w)
-            s1.wins += 1
-            s1.stattrack()
+            s1.incrementwins()
             a = 1
         else:
             print("The computer picked "+compin+L)
-            s1.losses += 1
-            s1.stattrack()
+            s1.incrementlosses()
             a = 1
     except:
         print("Error: the tool you picked does not exist")
