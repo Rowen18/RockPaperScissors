@@ -6,12 +6,21 @@ value = {"rock": ("scissors", "lizard"),
          "scissors": ("paper", "lizard"),
          "lizard": ("paper", "spock"),
          "spock": ("scissors", "rock")}
+class stats:
+    def __init__(self, wins, losses, ties):
+        self.wins = 0
+        self.losses = 0
+        self.ties = 0
+
+    def stattrack(self):
+        print("You have " + str(self.wins) + " wins, " + str(self.ties) + " tied games, and " + str(self.losses) + " losses.")
+s1 = stats(0,0,0)
 while valid_input == False:
     compin = random.choice(["rock", "paper", "scissors", "lizard", "spock"])
 #0=rock 1=paper 2=scissors
-    w = "You win!"
-    t = "You tied."
-    L = "You lose."
+    w = ". You win!"
+    t = ". You tied."
+    L = ". You lose."
     if a == 0:
         usein = input("Welcome to rock, paper, scissors, lizard, spock! Please type your choice:").lower()
     elif a == 1:
@@ -22,15 +31,21 @@ while valid_input == False:
         usein = input("I have no idea how you got this prompt, but if you want to input your choice I won't stop you.").lower()
     try:
         if usein == compin:
-            print(t)
+            print("The computer picked "+compin+t)
+            s1.ties += 1
+            s1.stattrack()
             a = 1
         elif usein == "stop":
             break
         elif compin in value[usein]:
-            print("The computer picked "+compin+". "+w)
+            print("The computer picked "+compin+w)
+            s1.wins += 1
+            s1.stattrack()
             a = 1
         else:
-            print("The computer picked "+compin+". "+L)
+            print("The computer picked "+compin+L)
+            s1.losses += 1
+            s1.stattrack()
             a = 1
     except:
         print("Error: the tool you picked does not exist")
